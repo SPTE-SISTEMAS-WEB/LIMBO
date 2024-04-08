@@ -1,0 +1,27 @@
+2024/02/12 12:35:28 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajust
+											)
+								VALUES (594 ,928 ,'0000000544','9','2','2744','LAYS ARTESANAS NAT 96 GR','7861018505351','9186','-7') ) => SQLSTATE[42S22]: Column not found: [Informix][Informix ODBC Driver][Informix]Column (difi_can_ajust) not found in any table in the query (or SLV is undefined). (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/12 12:36:29 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajust
+											)
+								VALUES (594 ,928 ,'0000000544','9','2','2744','LAYS ARTESANAS NAT 96 GR','7861018505351','9186','-7') ) => SQLSTATE[42S22]: Column not found: [Informix][Informix ODBC Driver][Informix]Column (difi_can_ajust) not found in any table in the query (or SLV is undefined). (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+

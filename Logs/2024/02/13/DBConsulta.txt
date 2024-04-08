@@ -1,0 +1,281 @@
+2024/02/13 01:33:46 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001154','5','3','2744','VINO FRIZZANTE PEACH
+Sin información                                                                                                                                                                   ','8420209039311','16','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:37:39 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','16','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:37:46 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','16','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:38:00 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','16','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:38:34 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','16','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:41:25 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','16','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:42:03 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','16','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:42:32 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','9186','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:42:59 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','9186','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:46:45 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','9186','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 01:52:36 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001152','5','3','2744','VINO FRIZZANTE BERRY
+Sin información                                                                                                                                                                   ','8420209039298','9186','-2') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 03:20:12 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001154','5','2','2744','VINO FRIZZANTE PEACH
+Sin información                                                                                                                                                                   ','8420209039311','16','-3') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 04:34:51 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001566','20','20','2744','WERTHER´S CARAMELO CAPUCCINO SIN AZUCAR CAJITA 42g
+','4014400909692','910','0') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 04:35:26 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001566','20','20','2744','WERTHER´S CARAMELO CAPUCCINO SIN AZUCAR CAJITA 42g
+','4014400909692','910','0') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 04:35:30 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001566','20','20','2744','WERTHER´S CARAMELO CAPUCCINO SIN AZUCAR CAJITA 42g
+','4014400909692','910','0') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 04:35:41 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001566','20','20','2744','WERTHER´S CARAMELO CAPUCCINO SIN AZUCAR CAJITA 42g
+','4014400909692','910','0') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 04:36:01 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001566','20','20','2744','WERTHER´S CARAMELO CAPUCCINO SIN AZUCAR CAJITA 42g
+','4014400909692','910','0') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 04:38:25 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001565','19','20','2744','WERTHER´S ORIGINAL SIN AZUCAR CAJITA 42g
+','4014400907902','910','1') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 04:38:43 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001565','19','20','2744','WERTHER´S ORIGINAL SIN AZUCAR CAJITA 42g
+','4014400907902','910','1') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+2024/02/13 04:39:43 >>>> ( INSERT INTO saedifi (
+											difi_cod_empr,
+											difi_cod_sucu,
+											difi_cod_prod,
+											difi_sto_cort,
+											difi_con_fisi,
+											difi_cod_infi,
+											difi_nom_prod,
+											difi_num_lote,
+											difi_dat_var2,
+											difi_can_ajus
+											)
+								VALUES (594 ,928 ,'0000001565','19','20','2744','WERTHER´S ORIGINAL SIN AZUCAR CAJITA 42g
+','4014400907902','910','1') ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver]General error. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
+
