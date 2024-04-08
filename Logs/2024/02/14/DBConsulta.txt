@@ -1,8 +1,0 @@
-2024/02/14 10:33:55 >>>> ( SELECT f.empl_cod_empl,a.vend_cod_vend as codvendedor,a.vend_cod_sucu as sucursal,a.vend_ruc_vend as ruc ,
-						   a.vend_cod_empr,a.vend_nom_vend as nombreVendedor,b.usua_cod_usua  ,b.usua_nom_usua,c.sucu_nom_sucu ,c.sucu_cod_sucu idSucursal
-					FROM saevend a 
-					LEFT JOIN  b ON  a.vend_ruc_vend  = b.usua_cod_empl 
-					LEFT JOIN saeempl f ON  a.vend_ruc_vend  = f.empl_cod_empl 
-					LEFT JOIN saesucu c ON  a.vend_cod_empr  = c.sucu_cod_sucu 
-					WHERE vend_ruc_vend = 'desa001' AND vend_est_vend= 1 ) => SQLSTATE[HY000]: General error: [Informix][Informix ODBC Driver][Informix]An illegal character has been found in the statement. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
-

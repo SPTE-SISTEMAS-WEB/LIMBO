@@ -1,2 +1,0 @@
-2024/03/04 01:32:11 >>>> ( SELECT  pedtou_pedtou, pedtou_fecped, pedtou_mesped, pedtou_horped, pedtou_estado, pedtou_numcli, pedtou_mesero, pedtou_precue,pedtou_observ FROM tb_pedtou WHERE pedtou_compan = '2' AND pedtou_sucurs= '600' AND pedtou_fecped='3/3/2024' AND pedres_mesero='576'  ) => SQLSTATE[42S22]: Column not found: [Informix][Informix ODBC Driver][Informix]Column (pedres_mesero) not found in any table in the query (or SLV is undefined). (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
-

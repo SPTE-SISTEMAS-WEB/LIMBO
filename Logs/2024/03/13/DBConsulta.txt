@@ -1,3 +1,0 @@
-2024/03/13 10:58:27 >>>> ( select * from saelcat where lcat_cod_empr = '2'  AND lcat_cod_sucu= '' ; AND lcat_tip_lcat in (1,2) order by  lcat_nom_cate desc ;   ) => SQLSTATE[42000]: Syntax error or access violation: [Informix][Informix ODBC Driver][Informix]A syntax error has occurred. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
-2024/03/13 10:58:37 >>>> ( select * from saelcat where lcat_cod_empr = '2'  AND lcat_cod_sucu= '600' ; AND lcat_tip_lcat in (1,2) order by  lcat_nom_cate desc ;   ) => SQLSTATE[42000]: Syntax error or access violation: [Informix][Informix ODBC Driver][Informix]A syntax error has occurred. (SQLPrepare[0] at ext\pdo_odbc\odbc_driver.c:200)
-
