@@ -30,6 +30,15 @@ if (isset($data['metodo'])) {
             case 'LISTAR_EMPRESAS':  // login inicial
             return print_r(json_encode($procesosLimbo->ListarEmpresas($data)));
 
+            case 'LISTAR_SUCURSAL':  // login inicial
+                  return print_r(json_encode($procesosLimbo->ListarSucursal($data)));
+
+
+
+
+            
+/****************** */
+
 		case 'LISTAR_USUARIOS':  // 
             return print_r(json_encode($procesosLimbo->ListarUsuarios($data)));
 			
@@ -51,7 +60,7 @@ if (isset($data['metodo'])) {
 		case 'BUSCAR_PEDIDO':  // 
             return print_r(json_encode($procesosLimbo->BuscarPedido($data)));
 			
-		case 'INGRESO_MAESTRO':  // 
+		case 'UPDATE_MAESTRO':  // 
             return print_r(json_encode($procesosLimbo->IngresoMaestro($data)));
 		
 		case 'AUMENTO_CUPO':  // 
@@ -60,10 +69,7 @@ if (isset($data['metodo'])) {
 		case 'INGRESO_CLIENTE':  // 
             return print_r(json_encode($procesosLimbo->IngresoCliente($data)));
 			
-			
-			
 /************************ INTERFASE PRODUCTOS *********************************/
-
 			
 		case 'LISTAR_PRODUCTOS':  //
             return print_r(json_encode($procesosLimbo->ListarProductos($data)));
@@ -93,9 +99,17 @@ if (isset($data['metodo'])) {
             return print_r(json_encode($procesosLimbo->BuscoSecuencialFactura($data)));*/
 
 
-            
+/**************************** SUBIDA DE DATOS       ********************** */
             
 		
+            case 'SUBIDA_DETAIL_ORDERS':  //
+            return print_r(json_encode($procesosLimbo->SubidaDetallePedidos($data)));
+
+
+
+
+
+
 /************************ OTRAS CONSULTAS *********************************/
 
 			

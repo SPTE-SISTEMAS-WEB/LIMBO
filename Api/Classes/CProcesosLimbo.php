@@ -16,7 +16,44 @@ class ProcesosLimbo extends DBConexion
     {
         try {
 
-            $sql = "SELECT sucu_cod_sucu as idsucursal,sucu_cod_empr as empresa,sucu_nom_sucu as nombre_sucursal FROM saesucu WHERE sucu_cod_sucu in (926,600) ;  ";
+            $sql = "SELECT empr_cod_empr,empr_nom_empr FROM saeempr WHERE empr_cod_empr in (2,3) ";
+
+            $exec = $this->Consulta($sql, true);
+
+            if (count($exec) == 0) return Funciones::RespuestaJson(2, "No hay datos para mostrar");
+
+            $items = array();
+            
+            $valor_inicial = array(
+                'empr_cod_empr' => '0',
+                'empr_nom_empr' => 'SELECCIONE',
+                // Agrega más claves y valores según sea necesario
+            );
+            
+            foreach ($exec as $item) {
+
+                $item['empr_cod_empr'] = trim($item['empr_cod_empr']);
+				$item['empr_nom_empr'] = trim($item['empr_nom_empr']);
+
+                $items[] = $item;
+            }
+            array_unshift($items, $valor_inicial);
+
+            return Funciones::RespuestaJson(1, "", array("empresas" => $items));
+        } catch (Exception $e) {
+            Funciones::Logs(basename(__FILE__, '.php'), $e);
+            return Funciones::RespuestaJson(2, "Error de servidor interno");
+        }
+    }
+
+
+    public function ListarSucursal($data)
+    {
+        try {
+
+            $empresa = trim($data['empresa']);
+
+            $sql = "SELECT sucu_cod_sucu as idsucursal,sucu_nom_sucu as nombre_sucursal FROM saesucu WHERE sucu_cod_empr =  '$empresa' and sucu_cod_sucu in (600,926) ";
 
             $exec = $this->Consulta($sql, true);
 
@@ -27,13 +64,12 @@ class ProcesosLimbo extends DBConexion
             foreach ($exec as $item) {
 
                 $item['idsucursal']      = trim($item['idsucursal']);
-				$item['empresa']         = trim($item['empresa']);
 				$item['nombre_sucursal'] = trim($item['nombre_sucursal']);
 
                 $items[] = $item;
             }
 
-            return Funciones::RespuestaJson(1, "", array("empresas" => $items));
+            return Funciones::RespuestaJson(1, "", array("sucursales" => $items));
         } catch (Exception $e) {
             Funciones::Logs(basename(__FILE__, '.php'), $e);
             return Funciones::RespuestaJson(2, "Error de servidor interno");
@@ -80,7 +116,6 @@ class ProcesosLimbo extends DBConexion
 
 			$sucursal = trim($data['sucursal']);
 			$empresa = trim($data['empresa']);
-
 			
             $sql = "SELECT rbra_cod_rbra,rbra_cod_pltu,rbra_cod_braz,rbra_tip_braz,rbra_tip_grup,rbra_bra_grup, rbra_est_rbra ,rbra_val_cupo,rbra_val_cons,rbra_val_canc,rbra_cod_usua,rbra_val_pedi , rbra_hor_ingr,rbra_usu_vend,rbra_cod_empl,rbra_nom_clie,rbra_cov_rbra FROM saerbra 
 			WHERE  rbra_cod_empr = '$empresa'  AND rbra_cod_sucu = '$sucursal' ";
@@ -230,10 +265,10 @@ class ProcesosLimbo extends DBConexion
 
 			$cupo    = intval($data['cupo']);
 			$date = date("n/d/Y");
-            $time =  date("H:i:s");
+            $time = date("n/d/Y H:i:s");
  
             $sql = "UPDATE saerbra SET rbra_nom_clie='$nombre',rbra_cod_empl='$ruc',rbra_val_cupo='$cupo',rbra_est_rbra='L', rbra_fec_ingr='$date' WHERE rbra_cod_rbra = '$idbrazalete'";
-
+           // echo $sql;exit();
 			$exec = $this->Consulta($sql, false, true);
             if (!$exec) return Funciones::RespuestaJson(2, "No se pudo actualizar!");
 
@@ -251,17 +286,14 @@ class ProcesosLimbo extends DBConexion
     public function IngresoMaestro($data) /*** UPDATE BRAZALETE MAESTRO ***/
     {
         try {
-            if (empty($data['nombre'])) return Funciones::RespuestaJson(2, "El nombre cliente es requerido!");
-            if (empty($data['ruc'])) return Funciones::RespuestaJson(2, "El ruc cliente es requerido!");
+            if (empty($data['empresa'])) return Funciones::RespuestaJson(2, "El nombre cliente es requerido!");
+            if (empty($data['sucursal'])) return Funciones::RespuestaJson(2, "El ruc cliente es requerido!");
 			
-            $idbrazalete = intval($data['idbrazalete']);
-			$codigo    = strval($data['codigo']);
+            $brazalete = $data['code'];
+			$codigo    = $data['maestro'];
  
-            $sql = "UPDATE saerbra SET rbra_bra_grup ='$codigo' WHERE rbra_cod_rbra = '$idbrazalete'"; 
+            $sql = "UPDATE saerbra SET rbra_bra_grup ='$codigo' WHERE rbra_cod_braz = '$brazalete'"; 
 			
-			//echo $sql;exit();
-
-
 			$exec = $this->Consulta($sql, false, true);
             if (!$exec) return Funciones::RespuestaJson(2, "No se pudo actualizar!");
 
@@ -277,21 +309,43 @@ class ProcesosLimbo extends DBConexion
 	public function AumentoCupo($data) /*** UPDATE CUPO  ***/
     {
         try {
+
             if (empty($data['nombre'])) return Funciones::RespuestaJson(2, "El nombre cliente es requerido!");
             if (empty($data['ruc'])) return Funciones::RespuestaJson(2, "El ruc cliente es requerido!");
-			
-            $idbrazalete = intval($data['idbrazalete']);
+
+            $brazalete = $data['brazalete'];
 			$nombre    = strval($data['nombre']);
 			$ruc    = strval($data['ruc']);
 			$cover    = intval(trim($data['cover']));
 			$cupo    = intval($data['cupo']);
 			$date = date("n/d/Y");
             $time =  date("H:i:s");
- 
-            $sql = "UPDATE saerbra SET rbra_nom_clie='$nombre',rbra_cod_empl='$ruc',rbra_val_cupo='$cupo',rbra_est_rbra='L', rbra_fec_ingr='$date' WHERE rbra_cod_rbra = '$idbrazalete'"; 
-			
-			//echo $sql;exit();
+            $empresa    = intval($data['empresa']);
+            $sucursal    = intval($data['sucursal']);
+            $codigo    = $data['codigomaestro'];
 
+ 
+
+             $sql1 = "SELECT  rbra_cod_rbra FROM saerbra  WHERE rbra_cod_empr = '$empresa'  AND rbra_cod_sucu = '$sucursal' AND rbra_cod_braz = '$codigo' and rbra_est_rbra != 'L' ";
+
+            $exec1 = $this->Consulta($sql1, true);
+
+            if ($exec1) return Funciones::RespuestaJson(2, "Brazalete maestro no autorizado");
+
+            /**********buscamos que no posea un brazalete maestro  */
+
+       //    $sql12 = "SELECT  rbra_cod_rbra FROM saerbra  WHERE rbra_cod_empr = '$empresa'  AND rbra_cod_sucu = '$sucursal' AND rbra_cod_braz = '$codigo'  ";
+
+         //   $exec12 = $this->Consulta($sql12, true);
+
+           // if (!$exec12) return Funciones::RespuestaJson(2, "Requiere brazalete maestro para cambiar cupoestro no autorizado");  
+
+
+            /**********INCREMENTAMOS EL CUPO   */
+            
+            $sql = "UPDATE saerbra SET rbra_val_cupo='$cupo' WHERE rbra_cod_braz = '$brazalete'";
+
+           // echo $sql ;
 
 			$exec = $this->Consulta($sql, false, true);
             if (!$exec) return Funciones::RespuestaJson(2, "No se pudo actualizar!");
@@ -569,16 +623,9 @@ class ProcesosLimbo extends DBConexion
  
             $compania = intval($data['empresa']);
             $sucursal = intval($data['sucursal']);
-            $mesero = intval($data['mesero']); //mesero
+            $mesero   = intval($data['mesero']); 
 
-  			$mesa_braza = trim($data['mesped']); //brazalete
-			$estado = trim($data['estado']); //trim($data['estado']);
-			$numcliente = trim($data['numclientes']); //numero de clientes en mesa  = 1
-            $rucCliente = trim($data['rucCliente']);
-            $nomCliente = trim($data['nomCliente']);
-			$observacion = trim($data['observacion']);
-
-            $sql = "INSERT INTO tb_pedtou (pedtou_compan, pedtou_sucurs, pedtou_fecped, pedtou_mesped, pedtou_horped, pedtou_estado, pedtou_ruccli,pedtou_nomcli, pedtou_numcli,pedtou_mesero, pedtou_observ)
+           $sql = "INSERT INTO tb_pedtou (pedtou_compan, pedtou_sucurs, pedtou_fecped, pedtou_mesped, pedtou_horped, pedtou_estado, pedtou_ruccli,pedtou_nomcli, pedtou_numcli,pedtou_mesero, pedtou_observ)
             VALUES('$compania','$sucursal','$fecha_pedido','$mesa_braza','$hora_pedido','$estado', '$rucCliente', '$nomCliente','$numcliente','$mesero','$observacion') ";
 
 			//echo $sql;exit();
@@ -614,6 +661,7 @@ class ProcesosLimbo extends DBConexion
  
             $compania = intval($data['empresa']);
             $sucursal = intval($data['sucursal']);
+            $pedido = intval($data['pedido']); //pedido
             $mesero = intval($data['mesero']); //mesero
 
             $rucCliente = trim($data['rucCliente']);
@@ -642,7 +690,7 @@ class ProcesosLimbo extends DBConexion
     }
 
 
-    public function GuardarDetallePedidos($data) /*** REGISTRO PEDIDO ***/
+    public function GuardarDetallePedidos($data) /*** REGISTRO DETALLE PEDIDO ***/
     {
         try {
 
@@ -721,7 +769,7 @@ class ProcesosLimbo extends DBConexion
 
 
 
-    public function AnularDetallePedidos($data) /*** REGISTRO PEDIDO ***/
+    public function AnularDetallePedidos($data) /*** ANULAR PEDIDO ***/
     {
         try {
 
@@ -757,7 +805,7 @@ class ProcesosLimbo extends DBConexion
 
 
 
-    public function DescuentoDetallePedidos($data) /*** REGISTRO PEDIDO ***/
+    public function DescuentoDetallePedidos($data) /*** UPDATE DESCUENTO  PEDIDO ***/
     {
         try {
 
@@ -796,7 +844,7 @@ class ProcesosLimbo extends DBConexion
 
 
 
-    public function PrecuentaPedidos($data) /*** REGISTRO PEDIDO ***/
+    public function PrecuentaPedidos($data) /*** UPDATE PRECUENTA ***/
     {
         try {
 
@@ -823,7 +871,88 @@ class ProcesosLimbo extends DBConexion
         }
     }
 
-    
+    /*******************************    SUBIDA MASIVA DE DATOS    **************** */
+
+
+    public function SubidaDetallePedidos($data) /*** SUBIDA CABECERA PEDIDO ***/
+    {
+        try {
+
+            if (!isset($data['mesero'])) return Funciones::RespuestaJson(2, "Debe establecer el mesero");
+            if (!isset($data['empresa'])) return Funciones::RespuestaJson(2, "Debe establecer la empresa");
+            if (!isset($data['sucursal'])) return Funciones::RespuestaJson(2, "Debe establecer la sucursal");
+      
+			$fecha_pedido = date("n/d/Y");
+            $hora_pedido =  date("H:i:s");
+ 
+            $compania = intval($data['empresa']);
+            $sucursal = intval($data['sucursal']);
+            $mesero   = intval($data['mesero']); //mesero
+
+            $json_data = file_get_contents('php://input');
+
+
+            $data = json_decode($json_data, true);
+            $arregloDeArreglos = array();
+     
+            if (isset($data['arreglocabecera']) && is_array($data['arreglocabecera'])) {
+
+                foreach ($data as $key => $value) {
+                    foreach ($value as  $elemento) {
+                  
+                        $data_llena = array();
+                        $salida = explode("-",$elemento['fecha_pedido']);
+                        $salidaT = $salida[1].'/'.$salida[2].'/'.$salida[0];
+
+                        $compania     = $elemento['compania'];
+                        $sucursal     = $elemento['sucursal'];
+                        $fecha_pedido = $salidaT;
+                        $mesa_braza   = $elemento['mesa_braza'];
+                        $hora_pedido = $elemento['hora_pedido'];
+                        $estado      = $elemento['estado'];
+                        $rucCliente  = $elemento['rucCliente'];
+                        $nomCliente  = $elemento['nomCliente'];
+                        $numcliente  = $elemento['numcliente'];
+                        $mesero      = $elemento['mesero'];
+                        $observacion = $elemento['observacion'];
+
+                       // echo $compania.'-'.$sucursal.'-'.$fecha_pedido.'-'.$mesa_braza.'-'.$hora_pedido.''.$estado.''.$rucCliente.'-'.$nomCliente.'-'.$numcliente.'-'.$mesero.'-'.$observacion.'----';
+
+                        $sql = "INSERT INTO tb_pedtou (pedtou_compan, pedtou_sucurs, pedtou_fecped, pedtou_mesped, pedtou_horped, pedtou_estado, pedtou_ruccli,pedtou_nomcli, pedtou_numcli,pedtou_mesero, pedtou_observ)
+                        VALUES('$compania','$sucursal','$fecha_pedido','$mesa_braza','$hora_pedido','$estado', '$rucCliente', '$nomCliente','$numcliente','$mesero','$observacion') ";
+            
+                        echo $sql;
+                        //$exec = $this->Consulta($sql, false, true);
+                        //if (!$exec) return Funciones::RespuestaJson(2, "No se pudo registrar la cabecera!");
+            
+                        $sqlt = "SELECT MAX(pedtou_pedtou) AS ultimo_id FROM tb_pedtou";
+                        $execid = $this->Consulta($sqlt, true);
+                        if (!$execid) return Funciones::RespuestaJson(2, "No se encontro el id");
+
+                        $data_llena = array(
+                            "idPedido"   => $execid[0]['ultimo_id'],
+                            "idBrazalete" => $mesa_braza
+                        );
+
+                    $arregloDeArreglos[] = $data_llena;
+                }
+
+                }
+                
+                return Funciones::RespuestaJson(1, "Registro exitoso!",array("idCodigo" => $arregloDeArreglos));
+            } else {
+                return Funciones::RespuestaJson(2, "No se recibió un arreglo válido de pedido");
+            }
+
+        } catch (Exception $e) {
+            Funciones::Logs(basename(__FILE__, '.php'), $e);
+            return Funciones::RespuestaJson(2, "Error de servidor interno");
+        }
+    }
+
+
+
+
 
 	public function BuscoPrecio($empresa,$sucursal,$codigo) 
     {            
@@ -918,7 +1047,8 @@ class ProcesosLimbo extends DBConexion
 			$sucursal = trim($data['sucursal']);
 			$empresa = trim($data['empresa']);
 
-            $sql = "select lcat_cod_lcat,lcat_cod_empr,lcat_cod_sucu,lcat_nom_cate,lcat_chk_lcat,lcat_bod_lcat,lcat_tip_lcat,lcat_imp_dbar from saelcat where lcat_cod_empr = '$empresa'  AND lcat_cod_sucu= '$sucursal'  AND lcat_tip_lcat in (1,2) order by  lcat_nom_cate desc ;  ";
+            $sql = "SELECT lcat_cod_lcat,lcat_cod_empr,lcat_cod_sucu,lcat_nom_cate,lcat_chk_lcat,lcat_bod_lcat,lcat_tip_lcat,lcat_imp_dbar 
+                    FROM saelcat where lcat_cod_empr = '$empresa'  AND lcat_cod_sucu= '$sucursal'  AND lcat_tip_lcat in (1,2) order by  lcat_nom_cate desc ;  ";
 
             $exec = $this->Consulta($sql, true);
 
